@@ -5,7 +5,8 @@ import 'package:news/screens/category/categ_card.dart';
 import 'package:news/screens/category/categ_card_model.dart';
 
 class CategoryLeyar extends StatelessWidget {
-  static String routeName = 'home';
+  static String routeName = 'Categories';
+
   const CategoryLeyar({super.key});
 
   @override
@@ -30,41 +31,40 @@ class CategoryLeyar extends StatelessWidget {
           color: MyColors.science, pic: Assets.science, title: 'Science'),
     ];
 
-    return  Container(
-        padding: const EdgeInsets.all(35),
-        decoration: BoxDecoration(
-            image: DecorationImage(
-          image: AssetImage(
-            Assets.pattern,
-          ),
-          fit: BoxFit.cover,
-        )),
-        child: Column(
-          children: [
-            Container(
-              alignment: Alignment.centerLeft,
-              margin: const EdgeInsets.only(bottom: 29),
-              child: Text(
-                "Pick your categort \nof interest",
-                style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                    color: const Color(0xff4F5A69),
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
-            Expanded(
-              child: GridView.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisSpacing: 25,
-                    mainAxisSpacing: 20,
-                    crossAxisCount: 2,
-                    childAspectRatio: 148 / 171),
-                itemBuilder: (context, index) =>
-                    CategCard(index: index, card: cateCardsModels[index]),
-                itemCount: cateCardsModels.length,
-              ),
-            )
-          ],
+    return Container(
+      padding: const EdgeInsets.all(35),
+      decoration: BoxDecoration(
+          image: DecorationImage(
+        image: AssetImage(
+          Assets.pattern,
         ),
-      );
+        fit: BoxFit.cover,
+      )),
+      child: Column(
+        children: [
+          Container(
+            alignment: Alignment.centerLeft,
+            margin: const EdgeInsets.only(bottom: 29),
+            child: Text(
+              "Pick your categort \nof interest",
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                  color: const Color(0xff4F5A69), fontWeight: FontWeight.bold),
+            ),
+          ),
+          Expanded(
+            child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisSpacing: 25,
+                  mainAxisSpacing: 20,
+                  crossAxisCount: 2,
+                  childAspectRatio: 148 / 171),
+              itemBuilder: (context, index) =>
+                  CategCard(index: index, card: cateCardsModels[index]),
+              itemCount: cateCardsModels.length,
+            ),
+          )
+        ],
+      ),
+    );
   }
 }

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:news/common/my_colors.dart';
 import 'package:news/common/widgets/app_drawer/drawer_item.dart';
+import 'package:news/screens/category/category_leyar.dart';
+import 'package:news/screens/settings/settings_leyar.dart';
 
 class AppDrawer extends StatelessWidget {
-  const AppDrawer({super.key});
+  const AppDrawer({super.key, required this.onTap});
+  final Function(String) onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -24,17 +27,19 @@ class AppDrawer extends StatelessWidget {
                   .copyWith(fontWeight: FontWeight.bold),
             ),
           ),
-          const DrawerItem(
+          DrawerItem(ontap: onTap,
               icon: Icons.list,
               title: Text(
-                'Categories',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                CategoryLeyar.routeName,
+                style:
+                    const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               )),
-          const DrawerItem(
+          DrawerItem(ontap: onTap,
               icon: Icons.settings,
               title: Text(
-                'Settings',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                Settings.routeName,
+                style:
+                    const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ))
         ],
       ),
