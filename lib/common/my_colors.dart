@@ -8,4 +8,7 @@ class MyColors {
   static Color sport = const Color(0xffC91C22);
   static Color health = const Color(0xffED1E79);
   static Color environment = const Color(0xff4882CF);
+  static Color grey = const Color(0xff79828B);
+  static Color black = const Color(0xff42505C);
+
 }

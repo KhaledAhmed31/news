@@ -4,7 +4,6 @@ import 'my_colors.dart';
 
 class MyTheme {
   static ThemeData them = ThemeData(
-      colorScheme: ColorScheme.fromSeed(seedColor: MyColors.prim),
       textTheme: const TextTheme(titleLarge: TextStyle(color: Colors.white)),
       appBarTheme: AppBarTheme(
           foregroundColor: Colors.white,

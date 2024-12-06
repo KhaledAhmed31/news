@@ -2,44 +2,48 @@ import 'package:flutter/material.dart';
 import 'package:news/common/assets.dart';
 import 'package:news/common/my_colors.dart';
 import 'package:news/screens/category/categ_card.dart';
-import 'package:news/screens/category/categ_card_model.dart';
+import 'package:news/screens/category/models/categ_card_model.dart';
 
 class CategoryLeyar extends StatelessWidget {
   static String routeName = 'Categories';
-
-  const CategoryLeyar({super.key});
+  final Function(String) onTap;
+  const CategoryLeyar({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     List<CategCardModel> cateCardsModels = [
       CategCardModel(
+        id: '1',
         color: MyColors.sport,
         pic: Assets.ball,
         title: 'Sport',
       ),
       CategCardModel(
-          color: MyColors.politics, pic: Assets.politics, title: 'Politics'),
+          id: '2',
+          color: MyColors.politics,
+          pic: Assets.politics,
+          title: 'Politics'),
       CategCardModel(
-          color: MyColors.health, pic: Assets.health, title: 'Health'),
+          id: '3', color: MyColors.health, pic: Assets.health, title: 'Health'),
       CategCardModel(
-          color: MyColors.business, pic: Assets.bussiness, title: 'Business'),
+          id: '4',
+          color: MyColors.business,
+          pic: Assets.bussiness,
+          title: 'Business'),
       CategCardModel(
+          id: '5',
           color: MyColors.environment,
           pic: Assets.environment,
           title: 'Environment'),
       CategCardModel(
-          color: MyColors.science, pic: Assets.science, title: 'Science'),
+          id: '6',
+          color: MyColors.science,
+          pic: Assets.science,
+          title: 'Science'),
     ];
 
-    return Container(
-      padding: const EdgeInsets.all(35),
-      decoration: BoxDecoration(
-          image: DecorationImage(
-        image: AssetImage(
-          Assets.pattern,
-        ),
-        fit: BoxFit.cover,
-      )),
+    return Padding(
+      padding: const EdgeInsets.all(35.0),
       child: Column(
         children: [
           Container(
@@ -58,8 +62,11 @@ class CategoryLeyar extends StatelessWidget {
                   mainAxisSpacing: 20,
                   crossAxisCount: 2,
                   childAspectRatio: 148 / 171),
-              itemBuilder: (context, index) =>
-                  CategCard(index: index, card: cateCardsModels[index]),
+              itemBuilder: (context, index) => CategCard(
+                index: index,
+                card: cateCardsModels[index],
+                onTap: onTap,
+              ),
               itemCount: cateCardsModels.length,
             ),
           )
