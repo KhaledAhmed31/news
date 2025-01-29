@@ -6,6 +6,7 @@ class MyTheme {
   static ThemeData them = ThemeData(
       textTheme: const TextTheme(titleLarge: TextStyle(color: Colors.white)),
       appBarTheme: AppBarTheme(
+        
           foregroundColor: Colors.white,
           actionsIconTheme: const IconThemeData(size: 35, color: Colors.white),
           iconTheme: const IconThemeData(size: 35, color: Colors.white),

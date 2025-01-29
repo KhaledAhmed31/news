@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:news/common/my_colors.dart';
-import 'package:news/screens/category/models/news_card_model.dart';
+import 'package:news/models/news_model.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
-
 class NewsCard extends StatelessWidget {
-  const NewsCard({super.key, required this.model});
-  final NewsCardModel model;
+  const NewsCard({super.key, required this.article});
+  final Article article;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,17 +15,17 @@ class NewsCard extends StatelessWidget {
         children: [
           Image(
             fit: BoxFit.fill,
-            image: AssetImage(model.posterPath),
+            image: NetworkImage(article.urlToImage ?? ''),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 10.0),
             child: Text(
-              model.chanelName,
+              article.source!.name ?? '',
               style: TextStyle(color: MyColors.grey, fontSize: 11),
             ),
           ),
           Text(
-            model.des,
+            article.description ?? '',
             style: TextStyle(
                 color: MyColors.black,
                 fontSize: 14,
@@ -35,7 +34,7 @@ class NewsCard extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 5.0),
             child: Text(
-              timeago.format(model.publishDate) ,
+              timeago.format(DateTime.parse(article.publishedAt!)),
               style: TextStyle(
                 color: MyColors.grey,
                 fontSize: 13,

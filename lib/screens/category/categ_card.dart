@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:news/screens/category/models/categ_card_model.dart';
+import 'package:news/models/categ_card_model.dart';
 
 class CategCard extends StatelessWidget {
   const CategCard({super.key, required this.index, required this.card, required this.onTap});
   final int index;
   final CategCardModel card;
-  final Function (String) onTap;
+  final Function (CategCardModel) onTap;
   
 
   @override
@@ -14,7 +14,7 @@ class CategCard extends StatelessWidget {
     return InkWell(
       borderRadius: BorderRadius.circular(12),
       overlayColor: WidgetStatePropertyAll(card.color..withOpacity(.5)),
-      onTap: ()=>onTap(card.id),
+      onTap: ()=>onTap(card),
       child: Container(
         decoration: BoxDecoration(
             color: card.color,

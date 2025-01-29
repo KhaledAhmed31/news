@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news/common/my_colors.dart';
-import 'package:news/common/widgets/app_drawer/drawer_item.dart';
+import 'package:news/widgets/app_drawer/drawer_item.dart';
 import 'package:news/screens/category/category_leyar.dart';
 import 'package:news/screens/settings/settings_leyar.dart';
 

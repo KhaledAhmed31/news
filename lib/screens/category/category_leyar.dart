@@ -2,41 +2,44 @@ import 'package:flutter/material.dart';
 import 'package:news/common/assets.dart';
 import 'package:news/common/my_colors.dart';
 import 'package:news/screens/category/categ_card.dart';
-import 'package:news/screens/category/models/categ_card_model.dart';
+import 'package:news/models/categ_card_model.dart';
 
 class CategoryLeyar extends StatelessWidget {
   static String routeName = 'Categories';
-  final Function(String) onTap;
+  final Function(CategCardModel) onTap;
   const CategoryLeyar({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     List<CategCardModel> cateCardsModels = [
       CategCardModel(
-        id: '1',
+        id: 'sports',
         color: MyColors.sport,
         pic: Assets.ball,
         title: 'Sport',
       ),
       CategCardModel(
-          id: '2',
+          id: 'general',
           color: MyColors.politics,
           pic: Assets.politics,
-          title: 'Politics'),
+          title: 'General'),
       CategCardModel(
-          id: '3', color: MyColors.health, pic: Assets.health, title: 'Health'),
+          id: 'health',
+          color: MyColors.health,
+          pic: Assets.health,
+          title: 'Health'),
       CategCardModel(
-          id: '4',
+          id: 'business',
           color: MyColors.business,
           pic: Assets.bussiness,
           title: 'Business'),
       CategCardModel(
-          id: '5',
+          id: 'technology',
           color: MyColors.environment,
           pic: Assets.environment,
-          title: 'Environment'),
+          title: 'Technology'),
       CategCardModel(
-          id: '6',
+          id: 'science',
           color: MyColors.science,
           pic: Assets.science,
           title: 'Science'),
